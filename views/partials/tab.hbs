@@ -1,0 +1,35 @@
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+    tr:nth-child(even){background-color: #f2f2f2}
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+</style>
+<h1>全部的表[{{dbname}}]</h1>
+<table>
+    <thead>
+    <tr>
+        {{#each table_th}}
+            <th>{{this}}</th>
+        {{/each}}
+        <th>选择</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each list}}
+        <tr>
+            <td><a href="tables/{{this.TABLE_NAME}}">{{this.TABLE_NAME}}</a></td>
+            <td>{{this.TABLE_ROWS}}</td>
+            <td><a href="codes/{{this.TABLE_NAME}}">生成代码</a></td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>

@@ -1,0 +1,71 @@
+/*global define*/
+define([
+    'underscore',
+    'base/views/modal/modal',
+    '../../models/{{functionName}}Add/{{functionName}}AddModel'
+], function (_, BaseView,{{functionName}}AddModel) {
+    'use strict';
+
+    var {{functionName}}AddView = BaseView.extend({
+
+        id: '{{functionName}}AddView',
+        className: '{{functionName}}AddView',
+        events: {
+            'click #yes':'save'
+        },
+        label: '**',
+        model: new {{functionName}}AddModel(),
+        buttonDef:[{id:"yes",text:"确定"}],
+        fieldsDef: [
+            {
+                'name': 'sceneType',
+                'type': 'text',
+                'action': 'create',
+                'label': '数字必填',
+                'require':true,
+                'validations': {
+                    number : true
+                }
+            },
+            {
+                'name': 'channalcode',
+                'type': 'select',
+                'action': 'create',
+                'label': '下拉菜单',
+                'options': [],
+                'dataurl': {{url}} + '/api/getChannel',
+                'optionId': 'k',
+                'optionName': 'v',
+                'defaultValue': '',
+                'require':true,
+                'placeholder': '请选择'
+            }
+        ],
+        /*初始化*/
+        initialize: function (options) {
+            {{functionName}}AddView.__super__.initialize.apply(this, arguments);
+        },
+        /*保存方法*/
+        save:function(e){
+            if(this.validateDate()){
+                var _this = this;
+                this.bean.save(null,{
+                    success: function (model, response) {
+                        if (response.success=="true") {
+                            _this.trigger("hide");
+                            _this.bean.clear();
+                            _this.parentView.query();
+                            alert("添加成功");
+                        } else {
+                            alert(response.errors);
+                        }
+                    },
+                    error: function (model, response) {
+                        alert("信息添加失败")
+                    }
+                });
+            }
+        }
+    });
+    return {{functionName}}AddView;
+});

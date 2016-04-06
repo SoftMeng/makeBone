@@ -1,0 +1,31 @@
+{
+  "dir":[
+    "/{{result}}/models",
+    "/{{result}}/views",
+    "/{{result}}/models/{{functionName}}Query",
+    "/{{result}}/models/{{functionName}}List",
+    "/{{result}}/models/{{functionName}}Add",
+    "/{{result}}/models/{{functionName}}Update",
+    "/{{result}}/views/{{functionName}}View",
+    "/{{result}}/views/{{functionName}}Query",
+    "/{{result}}/views/{{functionName}}List",
+    "/{{result}}/views/{{functionName}}Add",
+    "/{{result}}/views/{{functionName}}Update"
+  ],
+  "file":[
+    "/{{result}}/models/{{functionName}}Query/{{functionName}}QueryModel.{{type}}",
+    "/{{result}}/models/{{functionName}}Query/{{functionName}}QueryCollection.{{type}}",
+    "/{{result}}/models/{{functionName}}List/{{functionName}}ListModel.{{type}}",
+    "/{{result}}/models/{{functionName}}List/{{functionName}}ListCollection.{{type}}",
+    "/{{result}}/models/{{functionName}}Add/{{functionName}}AddModel.{{type}}",
+    "/{{result}}/models/{{functionName}}Add/{{functionName}}AddCollection.{{type}}",
+    "/{{result}}/models/{{functionName}}Update/{{functionName}}UpdateModel.{{type}}",
+    "/{{result}}/models/{{functionName}}Update/{{functionName}}UpdateCollection.{{type}}",
+    "/{{result}}/views/{{functionName}}View/{{functionName}}View.{{type}}",
+    "/{{result}}/views/{{functionName}}Query/{{functionName}}Query.{{type}}",
+    "/{{result}}/views/{{functionName}}List/{{functionName}}List.{{type}}",
+    "/{{result}}/views/{{functionName}}Add/{{functionName}}Add.{{type}}",
+    "/{{result}}/views/{{functionName}}Update/{{functionName}}Update.{{type}}"
+  ]
+}
+

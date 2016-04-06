@@ -1,0 +1,20 @@
+<div>{{some_value}}</div>
+<table border="1">
+  <thead>
+    <tr>
+    	{{#each table_th}}
+    		<td>{{this}}</td>
+    	{{/each}}
+    </tr>
+  </thead>
+  <tbody>
+  {{#each list}}
+    <tr>
+    	{{#each this}}
+    		<td>{{this}}</td>
+    	{{/each}}
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
+

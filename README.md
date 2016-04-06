@@ -1,2 +1,1 @@
-# makeBone
-针对封装的backbone前端框架生成响应的业务代码
+# 封装backbone形成的新框架webbone的代码生成器

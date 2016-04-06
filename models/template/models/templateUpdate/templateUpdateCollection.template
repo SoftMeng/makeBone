@@ -1,0 +1,31 @@
+define([
+    'jquery',
+    'backbone',
+    'base/models/baseCollection',
+    './{{functionName}}UpdateModel'
+], function($, Backbone, BaseCollection, {{functionName}}UpdateModel) {
+    'use strict';
+
+    var {{functionName}}UpdateCollection = BaseCollection.extend({
+
+        url: function(){
+            return {{url}}+'/{{functionName}}/list';
+        },
+
+        model: {{functionName}}UpdateModel,
+
+        initialize: function() {
+
+        },
+
+        validate: function(attrs, options) {
+
+        },
+
+        parse: function(response, options)  {
+            return response;
+        }
+    });
+
+    return {{functionName}}UpdateCollection;
+});

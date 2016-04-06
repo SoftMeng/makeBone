@@ -1,0 +1,13 @@
+[
+  {
+    "category": "会员票-票类:原价",
+    "description": "",
+    "categoryValue": "ticketPriceRule",
+    "ruleValueList": [],
+    "priceSheDing": {
+      "priceCatgory": "tickedType",
+      "priceRule": "orgPrice",
+      "baseTicket": "memberTicketType"
+    }
+  }
+]

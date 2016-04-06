@@ -1,0 +1,31 @@
+define([
+    'jquery',
+    'backbone',
+    'base/models/baseCollection',
+    './{{functionName}}AddModel'
+], function($, Backbone, BaseCollection, {{functionName}}AddModel) {
+    'use strict';
+
+    var {{functionName}}AddCollection = BaseCollection.extend({
+
+        url: function(){
+            return {{url}}+'/{{functionName}}';
+        },
+
+        model: {{functionName}}AddModel,
+
+        initialize: function() {
+
+        },
+
+        validate: function(attrs, options) {
+
+        },
+
+        parse: function(response, options)  {
+            return response;
+        }
+    });
+
+    return {{functionName}}AddCollection;
+});

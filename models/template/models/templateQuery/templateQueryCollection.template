@@ -1,0 +1,31 @@
+define([
+    'jquery',
+    'backbone',
+    'base/models/baseCollection',
+    './{{functionName}}QueryModel'
+], function($, Backbone, BaseCollection, {{functionName}}QueryModel) {
+    'use strict';
+
+    var {{functionName}}QueryCollection = BaseCollection.extend({
+
+        url: function(){
+            return {{url}}+'/{{functionName}}/list';
+        },
+
+        model: {{functionName}}QueryModel,
+
+        initialize: function() {
+
+        },
+
+        validate: function(attrs, options) {
+
+        },
+
+        parse: function(response, options)  {
+            return response;
+        }
+    });
+
+    return {{functionName}}QueryCollection;
+});

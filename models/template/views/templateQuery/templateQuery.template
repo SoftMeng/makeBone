@@ -1,0 +1,50 @@
+/*global define*/
+define([
+    'underscore',
+    'base/views/query/query',
+    '../../models/{{functionName}}Query/{{functionName}}QueryModel'
+], function (_, BaseQuery, {{functionName}}QueryModel) {
+    'use strict';
+
+    var {{functionName}}QueryView = BaseQuery.extend({
+
+        id: '{{functionName}}QueryView',
+        model: new {{functionName}}QueryModel(),
+        label: '查询',
+        buttonDef:[{id:"{{functionName}}QueryBtn",text:"查询"}],
+        events: {
+
+        },
+        fieldsDef: [
+            {
+                'name': 'id',
+                'type': 'text',
+                'action': 'create',
+                'label': '数字必填',
+                'validations': {
+                    number : true
+                }
+            },
+            {
+                'name': 'name',
+                'type': 'select',
+                'action': 'create',
+                'label': '下拉菜单',
+                'options': [],
+                'dataurl': {{url}} + '/api/getChannel',
+                'optionId': 'k',
+                'optionName': 'v',
+                'defaultValue': '',
+                'placeholder': '请选择'
+            }
+        ],
+        /*初始化*/
+        initialize: function (options) {
+            this.events = _.extend({}, {{functionName}}QueryView.__super__.events, this.events);
+            {{functionName}}QueryView.__super__.initialize.apply(this, arguments);
+        }
+    });
+
+    return {{functionName}}QueryView;
+});
+

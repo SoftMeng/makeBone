@@ -1,0 +1,13 @@
+{ Main_Id: 18,
+    Approval_Id: 18,
+    Name: '测试新建',
+    Customer_Id: '01',
+    Note: '测试新建',
+    Status: null,
+    Start_Date: Tue Dec 01 2015 00:00:00 GMT+0800 (CST),
+    End_Date: Thu Dec 31 2015 00:00:00 GMT+0800 (CST),
+    Creator: null,
+    Create_Date: Tue Dec 01 2015 15:34:09 GMT+0800 (CST),
+    Updator: null,
+    Update_Date: null,
+    Version: null }

@@ -1,0 +1,21 @@
+define([
+    'jquery',
+    'backbone',
+    'base/models/baseModel'
+], function($, Backbone, BaseModel) {
+    'use strict';
+
+    var {{functionName}}AddModel = BaseModel.extend({
+
+        //新增后端接口与查询接口一致,使用POST请求方式提交
+        urlRoot: {{url}}+'/{{functionName}}',
+
+        idAttribute : '{{index}}',
+        labels: {
+            {{#each columns}}
+            '{{this.column_name}}' : '{{this.column_comment}}',
+            {{/each}}
+        }
+    });
+    return {{functionName}}AddModel;
+});

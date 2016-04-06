@@ -1,0 +1,84 @@
+/*global define*/
+define([
+    'underscore',
+    'base/views/modal/modal',
+    '../../models/{{functionName}}Update/{{functionName}}UpdateModel'
+], function (_, BaseView, {{functionName}}UpdateModel) {
+    'use strict';
+
+    var {{functionName}}UpdateView = BaseView.extend({
+
+        id: '{{functionName}}UpdateView',
+        className: '{{functionName}}UpdateView',
+        model: new {{functionName}}UpdateModel(),
+        events: {},
+        label: '**修改',
+        buttonDef:[{id:"saveUpdate",text:"保存"}],
+        modalId:'{{functionName}}UpdateView',
+
+        fieldsDef: [
+            {
+                'name': 'sceneType',
+                'type': 'text',
+                'action': 'create',
+                'label': '数字必填',
+                'require':true,
+                'validations': {
+                    number : true
+                }
+            },
+            {
+                'name': 'name',
+                'type': 'select',
+                'action': 'edit',
+                'label': '下拉菜单',
+                'options': [],
+                'dataurl': {{url}} + '/api/getChannel',
+                'optionId': 'k',
+                'optionName': 'v',
+                'require':true,
+                'placeholder': '请选择'
+            },
+
+        ],
+        /*初始化*/
+        initialize: function (options) {
+            this.events = _.extend({}, {{functionName}}UpdateView.__super__.events, this.events);
+            {{functionName}}UpdateView.__super__.initialize.apply(this, arguments);
+            this.on("fill", this.fill);
+            this.on("update", this.update);
+        },
+        /*填充数据*/
+        fill: function (id) {
+            this.bean.clear();
+            this.bean.set({id: id});
+            this.bean.fetch();
+        },
+        /*更新保存*/
+        update: function (listView) {
+            var _self = this;
+            var model = new {{functionName}}UpdateModel(this.bean.toJSON());
+            if(this.validateDate()){
+                model.save(null,{
+                    success: function (model, response) {
+                        if (response.success=="true") {
+                            _self.trigger("hide");
+                            _self.bean.clear();
+                            listView.trigger("query");
+                            _self.parentView.query();
+                            alert("修改成功");
+                        } else {
+                            alert(response.errors);
+                        }
+                    },
+                    error: function (model, response) {
+                        alert("修改失败");
+                    }
+                });
+            }
+        }
+
+    });
+
+    return {{functionName}}UpdateView;
+});

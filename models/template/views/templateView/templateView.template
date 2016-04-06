@@ -1,0 +1,109 @@
+/*global define*/
+define([
+    'underscore',
+    'base/views/composite/composite'
+], function (_, BaseCompositeView) {
+    'use strict';
+
+    var {{functionName}}View = BaseCompositeView.extend({
+
+        label: '****管理',
+        events: {
+            'click #{{functionName}}QueryBtn': 'query',
+            'click #{{functionName}}Add':'add',
+            'click #{{functionName}}Delete':'deleteAll',
+            'click [name="update"]':'fill',
+            'click [name="delete"]':'delete',
+            'click #saveUpdate':'update',
+        },
+        viewsDef: [
+            {
+                'label': '查询',
+                'name': '{{functionName}}Query',
+                'module': {'name': '{{appName}}'},
+                'type': '{{functionName}}Query'
+            },
+            {
+                'label': '列表',
+                'name': '{{functionName}}List',
+                'module': {'name': '{{appName}}'},
+                'context': {'name': '{{functionName}}List', 'module': '{{appName}}'},
+                'type': '{{functionName}}List'
+            },
+            {
+                'label': '新增**',
+                'name': '{{functionName}}Add',
+                'module': {'name': '{{appName}}'},
+                'context': {'name': '{{functionName}}Add', 'module': '{{appName}}'},
+                'type': '{{functionName}}Add',
+                'modal': 'modal'
+            },
+            {
+                'label': '修改**',
+                'name': '{{functionName}}Update',
+                'module': {'name': '{{appName}}'},
+                'context': {'name': '{{functionName}}Update', 'module': '{{appName}}'},
+                'type': '{{functionName}}Update',
+                'modal': 'modal'
+            },
+        ],
+        /*查询*/
+        query:function(){
+            var  param  = this.getView("{{functionName}}Query").bean.toJSON();
+            this.getView("{{functionName}}List").trigger("{{functionName}}Query",param);
+        },
+        /*新增时页面打开*/
+        add:function(e){
+            this.getView("{{functionName}}Add").trigger("show");
+        },
+        /*删除*/
+        deleteAll:function(){
+            this.getView("{{functionName}}List").deleteAll();
+        },
+        /*更新时页面打开*/
+        fill:function(e){
+            var e =  e ||event;
+            var id = $(e.target).attr("update");
+            this.getView("{{functionName}}Update").trigger("show");
+            this.getView("{{functionName}}Update").trigger("fill", id);
+        },
+        /*更新*/
+        update:function(){
+            this.getView("{{functionName}}Update").trigger("update", this.getView("{{functionName}}List"));
+        },
+        /*删除此条*/
+        delete: function (e) {
+            var e =  e ||event;
+            var seqId = parseInt($(e.target).attr("delete"));
+            this.getView("{{functionName}}List").trigger("delete", seqId);
+        },
+        ajaxGet: function (param) {
+            var resp = {};
+            var url = param.url;
+            var data = param.data;
+            var type = param.type || "GET";
+            var dataType = param.dataType || "json";
+            var contentType = param.contentType || "application/json";
+            var success = param.success || function (response) {
+                    resp = response;
+                };
+            var error = param.error || function () {
+                    alert("操作异常");
+                };
+            var async = param.async || false;
+            Backbone.ajax({
+                type: type,
+                url: url,
+                data: data,
+                success: success,
+                error: error,
+                dataType: dataType,
+                contentType: contentType,
+                async: async
+            });
+            return resp;
+        }
+    });
+
+    return {{functionName}}View;
+});

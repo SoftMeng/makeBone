@@ -1,0 +1,20 @@
+define([
+    'jquery',
+    'backbone',
+    'base/models/baseModel'
+], function($, Backbone, BaseModel) {
+    'use strict';
+
+    var {{functionName}}QueryModel = BaseModel.extend({
+
+        urlRoot: {{url}}+'/{{functionName}}',
+
+        idAttribute : '{{index}}',
+        labels: {
+            {{#each columns}}
+            '{{this.column_name}}' : '{{this.column_comment}}',
+            {{/each}}
+        }
+    });
+    return {{functionName}}QueryModel;
+});

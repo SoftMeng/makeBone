@@ -1,0 +1,233 @@
+{
+  "name": " 新活动",
+  "channelTypeCode": "1",
+  "typeCode": "1",
+  "tagName": "9.9",
+  "priorityCode": "B",
+  "priorityNum": "12",
+  "startDate": "2015-12-01",
+  "endDate": "2015-12-31",
+  "description": "哈哈",
+  "mainId": "19",
+  "json": {
+    "type": "1",
+    "name": "价格优惠",
+    "data": [
+      {
+        "type": "8",
+        "name": "接口价格",
+        "json": {
+          "type": "1",
+          "value": "12"
+        }
+      },
+      {
+        "type": "15",
+        "name": "促销价格",
+        "json": {
+          "type": "2",
+          "value": "13"
+        }
+      },
+      {
+        "type": "12",
+        "name": "补贴设置",
+        "json": {
+          "type": "2",
+          "value": "14"
+        }
+      },
+      {
+        "type": "16",
+        "name": "每人限购",
+        "json": {
+          "type": "1",
+          "value": ""
+        }
+      },
+      {
+        "type": "11",
+        "name": "出票数量",
+        "json": {
+          "type": "2",
+          "value": "15"
+        }
+      }
+    ]
+  },
+  "isNew": "1",
+  "ruleJson": {
+    "channelJson": {
+      "code": "1",
+      "name": "渠道",
+      "data": [
+        {
+          "value": "01",
+          "valueName": "官网",
+          "oper": "out",
+          "text": "- 官网"
+        }
+      ],
+      "nameCode": "channel",
+      "oper": "out"
+    },
+    "payJson": {
+      "code": "2",
+      "name": "支付方式",
+      "data": [
+        {
+          "value": "01",
+          "valueName": "支付宝",
+          "oper": "out",
+          "text": "- 支付宝"
+        }
+      ],
+      "nameCode": "pay",
+      "oper": "out"
+    },
+    "productJson": {
+      "code": "4",
+      "name": "商品",
+      "data": [
+        {
+          "name": "/影票/影厅类型",
+          "value": "01",
+          "oper": "in",
+          "text": "+ 普通厅",
+          "valueName": "普通厅",
+          "nameCode": "filmType"
+        },
+        {
+          "name": "/影票/影厅类型",
+          "value": "02",
+          "oper": "in",
+          "text": "+ IMAX厅",
+          "valueName": "IMAX厅",
+          "nameCode": "filmType"
+        },
+        {
+          "name": "/影票/影厅类型",
+          "value": "03",
+          "oper": "in",
+          "text": "+ VIP厅",
+          "valueName": "VIP厅",
+          "nameCode": "filmType"
+        },
+        {
+          "name": "/影票/影片",
+          "value": "001",
+          "oper": "out",
+          "text": "- 夏洛特烦恼",
+          "valueName": "夏洛特烦恼",
+          "nameCode": "film"
+        },
+        {
+          "name": "/影票/影片",
+          "value": "002",
+          "oper": "out",
+          "text": "- 夏洛特烦恼2",
+          "valueName": "夏洛特烦恼2",
+          "nameCode": "film"
+        },
+        {
+          "name": "/影票/影片",
+          "value": "003",
+          "oper": "out",
+          "text": "- 夏洛特烦恼3",
+          "valueName": "夏洛特烦恼3",
+          "nameCode": "film"
+        },
+        {
+          "name": "/影票/影城",
+          "value": "10010",
+          "oper": "out",
+          "text": "- 大连大地",
+          "valueName": "大连大地",
+          "nameCode": "cinema"
+        },
+        {
+          "name": "/影票/影厅号",
+          "value": "1",
+          "oper": "out",
+          "text": "- 1",
+          "valueName": "1",
+          "nameCode": "hall"
+        },
+        {
+          "name": "/影票/放映制式",
+          "value": "01",
+          "oper": "out",
+          "text": "- 数字2D",
+          "valueName": "数字2D",
+          "nameCode": "showMethod"
+        },
+        {
+          "name": "/影票/放映制式",
+          "value": "02",
+          "oper": "out",
+          "text": "- 数字3D",
+          "valueName": "数字3D",
+          "nameCode": "showMethod"
+        },
+        {
+          "name": "/影票/场次类型",
+          "value": "01",
+          "oper": "out",
+          "text": "- 普通场",
+          "valueName": "普通场",
+          "nameCode": "showingType"
+        },
+        {
+          "name": "/影票/开场星期",
+          "value": "01",
+          "oper": "out",
+          "text": "- 星期一",
+          "valueName": "星期一",
+          "nameCode": "week"
+        },
+        {
+          "name": "/影票/开场月日",
+          "value": "2",
+          "oper": "out",
+          "text": "- 2",
+          "valueName": "2",
+          "nameCode": "day"
+        },
+        {
+          "name": "/影票/开场月日",
+          "value": "3",
+          "oper": "out",
+          "text": "- 3",
+          "valueName": "3",
+          "nameCode": "day"
+        },
+        {
+          "name": "/影票/开场日期",
+          "value": "marketingDate",
+          "oper": "between",
+          "text": "区间 2015-11-01 - 2016-01-10",
+          "startDate": "2015-11-01",
+          "endDate": "2016-01-10",
+          "nameCode": "marketingDateBasic",
+          "valueName": "2015-11-01 - 2016-01-10"
+        },
+        {
+          "name": "/影票/城市",
+          "value": "1001",
+          "oper": "out",
+          "text": "- 北京",
+          "valueName": "北京",
+          "nameCode": "cityBasic"
+        },
+        {
+          "name": "/影票/最低票价",
+          "value": "marketingPrice",
+          "oper": "between",
+          "text": "区间 12 - 55",
+          "valueName": "12 - 55",
+          "nameCode": "marketingPriceBasic"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{   
+    Sub_Id: 25,
+    Main_Id: 16,
+    Name: '活动项test3',
+    Type_Code: '1',
+    Template_Id: null,
+    Tag_Name: '活动项test3',
+    Priority_Code: 'C',
+    Priority_Num: 1,
+    Start_Date: Sun Nov 15 2015 08:00:00 GMT+0800 (CST),
+    End_Date: Sat Nov 21 2015 08:00:00 GMT+0800 (CST),
+    Description: '活动项test3',
+    Product_Type: '1',
+    Channel_Type_Code: '3',
+    Active_Status: '3',
+    Approval_Status: '3' }

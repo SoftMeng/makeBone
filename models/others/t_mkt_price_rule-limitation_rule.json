@@ -1,0 +1,73 @@
+[
+  {
+    "category": "可用",
+    "description": "购买渠道包含时光网",
+    "categoryValue": "canUse",
+    "ruleValueList": [
+      {
+        "param": "sourceId:MDM_PURCHASE_CHANNEL;typeId:ALL;",
+        "inputType": "multiselect",
+        "inputId": "purchaseChannel",
+        "label": "购买渠道",
+        "operator": "in",
+        "value": [
+          "DADISGW"
+        ],
+        "valueLabel": [
+          "时光网"
+        ]
+      }
+    ]
+  },
+  {
+    "category": "可用",
+    "description": "影城包含唐山东安",
+    "categoryValue": "canUse",
+    "ruleValueList": [
+      {
+        "param": "compositeId:cinema",
+        "inputType": "composite",
+        "inputId": "cinema",
+        "label": "影城",
+        "operator": "in",
+        "value": {
+          "selTarget": true,
+          "criteria": [
+            {
+              "inputId": "innerName",
+              "label": "影城名称",
+              "operator": "like",
+              "value": "东安",
+              "valueLabel": "东安"
+            },
+            {
+              "inputId": "area",
+              "label": "区域",
+              "operator": "in",
+              "value": [],
+              "valueLabel": ""
+            },
+            {
+              "inputId": "cinemaLevel",
+              "label": "影城级别",
+              "operator": "in",
+              "value": [],
+              "valueLabel": ""
+            }
+          ],
+          "selections": {
+            "value": [
+              "13053301"
+            ],
+            "valueLabel": [
+              "唐山东安"
+            ]
+          }
+        },
+        "valueLabel": [
+          "唐山东安"
+        ]
+      }
+    ]
+  }
+]

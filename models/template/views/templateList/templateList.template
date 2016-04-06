@@ -1,0 +1,117 @@
+define([
+    'underscore',
+    'base/views/list/list',
+    '../../models/{{functionName}}List/{{functionName}}ListCollection'
+], function (_, BaseList, {{functionName}}ListCollection) {
+    'use strict';
+
+    var {{functionName}}ListView = BaseList.extend({
+        label: '**列表',
+        collection: new {{functionName}}ListCollection(),
+        multiple: true,
+        buttonDef:[{id:"{{functionName}}Add",text:"新增",class:"fa fa-plus"},{id:"{{functionName}}Delete",text:"删除",class:"fa fa-times"}],
+        /*初始化*/
+        initialize: function () {
+            {{functionName}}ListView.__super__.initialize.apply(this, arguments);
+            this.on("{{functionName}}Query", this.{{functionName}}Query);
+            this.on("{{functionName}}Add", this.{{functionName}}Add);
+            this.on("delete", this.delete);
+        },
+        /*删除*/
+        delete: function (seqId) {
+            var self = this;
+            confirm("是否要删除本条记录？",function(){
+                //删除方法成功后回调
+                var del = self.bean.get(seqId);
+                del.destroy({
+                    success: function (model, response) {
+                        self.{{functionName}}Query();
+                    },
+                    error: function () {
+                    }
+                });
+            },null);
+        },
+        /*删除所选数据*/
+        deleteAll : function(){
+            var self = this;
+            var ids = self.getSelectedIds();
+            if (ids) {
+                confirm("是否删除所选的信息？",function(){
+                    {{functionName}}ListView.__super__.deleteAll.apply(self, arguments);
+                },null);
+
+            } else {
+                alert("请至少选择一项进行删除");
+            }
+
+        },
+        /*查询*/
+        {{functionName}}Query: function (param) {
+            var self = this;
+            self.param=param;
+            for(var key in param){
+                if(!param[key]){
+                    delete(param[key]);
+                }
+            }
+            this.collection.fetch({
+                data: param,
+                success: function () {
+                    self.render();
+                },
+                error: function () {
+                    self.cleanTable();
+                }
+            });
+        },
+        /*添加,此处需要重新添加跳转*/
+        {{functionName}}Add: function (param) {
+            window.location.href='#';
+        },
+        renderTable: function () {
+            var tableConfig = {
+                tableId: "list",
+                options: {
+                    'columnDefs': [
+                        {
+                            'orderable': false,
+                            'targets': ['_all']
+                        },
+                        {
+                            "targets": [1,5],
+                            "visible": false
+                        }
+                    ]
+                },
+                extendsConfig: [
+                    {
+                        index: "0",
+                        type: "checkbox",
+                        value: '{{index}}'
+                    },
+                    {
+                        index: "{{count}}",
+                        type: "button",
+                        text: "修改",
+                        name: "update",
+                        value: '{{index}}',
+                        attr: "update",
+                        modal: true
+                    },
+                    {
+                        index: "{{count}}",
+                        type: "button",
+                        id: "",
+                        text: "删除",
+                        name: "delete",
+                        value: '{{index}}',
+                        attr: "delete"
+                    }
+                ]
+            }
+            {{functionName}}ListView.__super__.renderTable.apply(this, [tableConfig]);
+        }
+    });
+    return {{functionName}}ListView;
+});
